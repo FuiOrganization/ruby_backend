@@ -1,0 +1,27 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: fui
+  username: fui
+  password: fui
+  host: localhost
+
+test: &test
+  <<: *default
+  encoding: utf8
+  database: test
+  username: fui
+  password: fui
+  host: localhost
+
+production:
+  <<: *default
+  database: production
+
+cucumber:
+  <<: *test
