@@ -16,8 +16,6 @@ engines:
       languages:
       - ruby
       - javascript
-      - python
-      - php
   eslint:
     enabled: true
   fixme:
@@ -48,3 +46,6 @@ exclude_paths:
 - features/*
 - lib/*
 - config/environments/*
+- db/schema.rb
+- Gemfile.lock
+- db/migrate
