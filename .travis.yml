@@ -14,3 +14,7 @@ before_script:
   - mysql -e "create database IF NOT EXISTS c9;"
   - mysql -e "create database IF NOT EXISTS test;"
   - mysql -e "create database IF NOT EXISTS production;"
+
+addons:
+    code_climate:
+        repo_token: 83d35d3612752ae0f542ecc2746766672f082b5e7cb0c9ce2b9c155e5b6c47c3 
