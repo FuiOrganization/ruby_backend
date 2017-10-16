@@ -2,6 +2,8 @@ language: ruby
 
 env:
   - DB=mysql
+  global:
+    - CC_TEST_REPORTER_ID=83d35d3612752ae0f542ecc2746766672f082b5e7cb0c9ce2b9c155e5b6c47c3
 
 services:
     -mysql2
@@ -14,7 +16,9 @@ before_script:
   - mysql -e "create database IF NOT EXISTS c9;"
   - mysql -e "create database IF NOT EXISTS test;"
   - mysql -e "create database IF NOT EXISTS production;"
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
-addons:
-    code_climate:
-        repo_token: 83d35d3612752ae0f542ecc2746766672f082b5e7cb0c9ce2b9c155e5b6c47c3 
+  after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
