@@ -26,7 +26,9 @@ engines:
       Rubocop/Metrics/LineLength:
         enabled: false
       Rubocop/Style/StringLiterals:
-        enabled: false        
+        enabled: false
+      Rubocop/Style/Documentation:
+        enabled: false                
 ratings:
   paths:
   - Gemfile.lock
