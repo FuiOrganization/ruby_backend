@@ -1,8 +1,13 @@
 require "rails_helper"
-=begin
 RSpec.describe ExperiencesController, type: :routing do
   describe "routing" do
 
+    it "routes to #find_recommendations" do
+      expect(post: "/experiences/find_recommendations").to route_to("experiences#find_recommendations")
+      expect(get: "/experiences/find_recommendations").to route_to("experiences#find_recommendations")
+    end
+
+=begin
     it "routes to #index" do
       expect(:get => "/experiences").to route_to("experiences#index")
     end
@@ -34,7 +39,6 @@ RSpec.describe ExperiencesController, type: :routing do
     it "routes to #destroy" do
       expect(:delete => "/experiences/1").to route_to("experiences#destroy", :id => "1")
     end
-
+=end
   end
 end
-=end
