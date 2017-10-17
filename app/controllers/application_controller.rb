@@ -7,8 +7,7 @@ class ApplicationController < ActionController::Base
     render :status => 201,
         :json => {
           success: false,
-          data: {
-          }
+          data: {}
          }
   end
 end
