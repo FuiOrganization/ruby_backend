@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+=begin
 RSpec.describe "experiences/edit", type: :view do
   before(:each) do
     @experience = assign(:experience, Experience.create!(
@@ -25,3 +25,4 @@ RSpec.describe "experiences/edit", type: :view do
     end
   end
 end
+=end

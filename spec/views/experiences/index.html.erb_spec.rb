@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+=begin
 RSpec.describe "experiences/index", type: :view do
   before(:each) do
     assign(:experiences, [
@@ -26,3 +26,4 @@ RSpec.describe "experiences/index", type: :view do
     assert_select "tr>td", :text => false.to_s, :count => 2
   end
 end
+=end

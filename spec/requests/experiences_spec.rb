@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+=begin
 RSpec.describe "Experiences", type: :request do
   describe "GET /experiences" do
     it "works! (now write some real specs)" do
@@ -8,3 +8,4 @@ RSpec.describe "Experiences", type: :request do
     end
   end
 end
+=end
