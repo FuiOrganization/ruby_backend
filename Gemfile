@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use simplecov for code coverage
-gem 'simplecov', :require => false, group: :test
+gem 'simplecov', require: false, group: :test
 
 # Use jquery as the JavaScript library
 # gem 'jquery-rails'

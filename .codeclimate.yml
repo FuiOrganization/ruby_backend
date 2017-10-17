@@ -28,7 +28,9 @@ engines:
       Rubocop/Style/StringLiterals:
         enabled: false
       Rubocop/Style/Documentation:
-        enabled: false                
+        enabled: false
+      Rubocop/Style/StringLiteralsInInterpolation:
+        enabled: false        
 ratings:
   paths:
   - Gemfile.lock
