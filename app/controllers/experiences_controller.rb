@@ -1,6 +1,6 @@
 class ExperiencesController < InheritedResources::Base
 
-  def get_recommendations
+  def find_recommendations
     @experiences = Experience.limit(4)
     render json: @experiences.to_json
   end

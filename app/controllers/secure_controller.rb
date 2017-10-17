@@ -1,4 +1,4 @@
-class SecureController <  ApplicationController
+class SecureController < ApplicationController
   include Knock::Authenticable
   include ActionView::Layouts
 
