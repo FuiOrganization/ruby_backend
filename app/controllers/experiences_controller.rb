@@ -5,6 +5,7 @@ class ExperiencesController < InheritedResources::Base
   end
 
   private
+
   def experience_params
     params.require(:experience).permit(:name, :description, :image_url, :sponsored)
   end
