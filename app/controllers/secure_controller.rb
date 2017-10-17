@@ -1,4 +1,4 @@
-class SecureController <  ApplicationController
+class SecureController < ApplicationController
   include Knock::Authenticable
   include ActionView::Layouts
 
@@ -8,7 +8,5 @@ class SecureController <  ApplicationController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
-  def test
-  end
-
+  def test; end
 end

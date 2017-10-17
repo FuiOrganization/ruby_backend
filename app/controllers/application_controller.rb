@@ -1,10 +1,5 @@
 class ApplicationController < ActionController::Base
   include Knock::Authenticable
   include ActionView::Layouts
-
-  def test
-    render :status => 201,
-        :json => { :success => false,
-        :data => {} }
-  end
+  protect_from_forgery with: :exception
 end
