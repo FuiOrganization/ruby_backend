@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # delete experiences route later because it's unsafe
-  #resources :experiences
+  # resources :experiences
   get 'experiences/get_recommendations'
   post 'experiences/get_recommendations'
   post 'user_token' => 'user_token#create'
