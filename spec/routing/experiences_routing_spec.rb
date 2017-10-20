@@ -2,11 +2,6 @@ require "rails_helper"
 RSpec.describe ExperiencesController, type: :routing do
   describe "routing" do
 
-    it "routes to #find_recommendations" do
-      expect(post: "/experiences/find_recommendations").to route_to("experiences#find_recommendations")
-      expect(get: "/experiences/find_recommendations").to route_to("experiences#find_recommendations")
-    end
-
 =begin
     it "routes to #index" do
       expect(:get => "/experiences").to route_to("experiences#index")
