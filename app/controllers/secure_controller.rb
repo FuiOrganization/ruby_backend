@@ -2,8 +2,6 @@ class SecureController < ActionController::Base
   include Knock::Authenticable
   include ActionView::Layouts
 
-  permit_params :facebook_identifier, :password
-
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user
 
