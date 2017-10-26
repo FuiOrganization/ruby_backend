@@ -7,10 +7,6 @@ class SecureController < ActionController::Base
 
   undef_method :current_user
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  end
-
   def test; end
 
   def configure_permitted_parameters

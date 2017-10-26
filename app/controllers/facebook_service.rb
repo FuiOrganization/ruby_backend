@@ -1,5 +1,4 @@
 class FacebookService
-
   def self.valid_token?(access_token)
     status = false
     begin
@@ -16,8 +15,7 @@ class FacebookService
   end
 
   def self.app_access_token_info
-   @oauth ||= Koala::Facebook::OAuth.new("2052368771707314", "274692a041a4f21f79aa4130994ef366")
-   @app_access_token ||= @oauth.get_app_access_token
- end
-
+    @oauth ||= Koala::Facebook::OAuth.new("2052368771707314", "274692a041a4f21f79aa4130994ef366")
+    @app_access_token ||= @oauth.get_app_access_token
+  end
 end
