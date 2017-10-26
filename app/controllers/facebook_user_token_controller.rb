@@ -23,10 +23,18 @@ class FacebookUserTokenController < ActionController::API
 
   def entity
     user = User.find_by facebook_identifier: auth_params[:facebook_identifier]
-    @entity ||= user if FacebookService.valid_token?(auth_params[:access_token], auth_params[:app_access_token])
+    if user.nil?
+      if FacebookService.valid_token?(auth_params[:access_token])
+        user_data = FacebookService.fetch_data(auth_params[:access_token])
+        user = User::create_facebook_user(auth_params[:facebook_identifier], user_data)
+        @entity ||= user if !user.nil?
+      end
+    else
+      @entity ||= user if FacebookService.valid_token?(auth_params[:access_token])
+    end
   end
 
   def auth_params
-    params.require(:auth).permit :access_token, :facebook_identifier, :app_access_token
+    params.require(:auth).permit :access_token, :facebook_identifier
   end
 end

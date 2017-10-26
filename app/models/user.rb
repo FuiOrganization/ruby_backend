@@ -5,6 +5,11 @@ class User < ApplicationRecord
   # , :registerable,
   #       :recoverable, :rememberable, :trackable, :validatable
 
+  def self.create_facebook_user(id, facebook_user_data)
+    user = User.new(name: facebook_user_data["first_name"], email: facebook_user_data["email"], facebook_identifier: id)
+    return user if user.save
+  end
+
   def login=(login)
     @login = login
   end

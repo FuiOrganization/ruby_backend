@@ -5,8 +5,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :facebook_identifier, null: false, default: ""
 
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: true, default: ""
+      t.string :encrypted_password, null: true, default: ""
 
       ## Recoverable
       # t.string   :reset_password_token
