@@ -13,3 +13,4 @@
 ### System dependencies
 * Devise
 * Knock
+* Koala

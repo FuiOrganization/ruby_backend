@@ -5,9 +5,8 @@ class FacebookService
       puts app_access_token_info
       debug_token = Koala::Facebook::API.new(access_token).debug_token(app_access_token_info)
       status = true if debug_token['data']['is_valid']
-    ensure
-      return status
     end
+    status
   end
 
   def self.fetch_data(access_token)

@@ -8,9 +8,7 @@ class FacebookUserTokenController < ActionController::API
   private
 
   def authenticate
-    unless entity.present?
-      raise Knock.not_found_exception_class
-    end
+    raise Knock.not_found_exception_class unless entity.present?
   end
 
   def auth_token
@@ -21,13 +19,17 @@ class FacebookUserTokenController < ActionController::API
     end
   end
 
+  def create_facebook_user(access_token, facebook_identifier)
+    user_data = FacebookService.fetch_data(access_token)
+    User.create_facebook_user(facebook_identifier, user_data)
+  end
+
   def entity
     user = User.find_by facebook_identifier: auth_params[:facebook_identifier]
     if user.nil?
       if FacebookService.valid_token?(auth_params[:access_token])
-        user_data = FacebookService.fetch_data(auth_params[:access_token])
-        user = User.create_facebook_user(auth_params[:facebook_identifier], user_data)
-        @entity ||= user unless user.nil?
+        user = create_facebook_user(auth_params[:access_token], auth_params[:facebook_identifier])
+        @entity ||= user
       end
     elsif FacebookService.valid_token?(auth_params[:access_token])
       @entity ||= user

@@ -1,5 +1,4 @@
 class ExperiencesController < InheritedResources::Base
-  
   private
 
   def experience_params
