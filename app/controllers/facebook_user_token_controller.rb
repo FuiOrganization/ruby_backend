@@ -25,15 +25,12 @@ class FacebookUserTokenController < ActionController::API
   end
 
   def entity
+    return unless FacebookService.valid_token?(auth_params[:access_token])
     user = User.find_by facebook_identifier: auth_params[:facebook_identifier]
     if user.nil?
-      if FacebookService.valid_token?(auth_params[:access_token])
-        user = create_facebook_user(auth_params[:access_token], auth_params[:facebook_identifier])
-        @entity ||= user
-      end
-    elsif FacebookService.valid_token?(auth_params[:access_token])
-      @entity ||= user
+      user = create_facebook_user(auth_params[:access_token], auth_params[:facebook_identifier])
     end
+    @entity ||= user
   end
 
   def auth_params
