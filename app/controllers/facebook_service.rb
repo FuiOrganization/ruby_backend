@@ -10,7 +10,7 @@ class FacebookService
   end
 
   def self.fetch_data(access_token)
-    Koala::Facebook::API.new(access_token).get_object('me', fields: 'first_name, email') if valid_token?(access_token)
+    Koala::Facebook::API.new(access_token).get_object('me', fields: 'id, first_name, email') if valid_token?(access_token)
   end
 
   def self.app_access_token_info
