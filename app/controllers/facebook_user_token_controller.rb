@@ -20,15 +20,15 @@ class FacebookUserTokenController < ActionController::API
   end
 
   def entity
-    # return if token is not valid
-    return unless FacebookService.valid_token?(auth_params[:access_token])
-    user = User.find_by facebook_identifier: auth_params[:facebook_identifier]
+    # return if facebook access token is not valid
+    # obs: fetch_data method checks for token validity
     user_data = FacebookService.fetch_data(auth_params[:access_token])
-    # return if token is not that user's token
+    return if user_data.nil?
+    # return if facebook access token is not current user's token
     return unless auth_params[:facebook_identifier] == user_data["id"]
+    @entity ||= User.find_by facebook_identifier: auth_params[:facebook_identifier]
     # create user account if user doesn't exist
-    user = User.create_facebook_user(auth_params[:facebook_identifier], user_data) if user.nil?
-    @entity ||= user
+    @entity ||= User.create_facebook_user(auth_params[:facebook_identifier], user_data)
   end
 
   def auth_params
