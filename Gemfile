@@ -12,6 +12,8 @@ gem 'knock'
 gem 'mysql2'
 # Use ActiveAdmin for Admin Panel
 gem 'activeadmin', github: 'activeadmin'
+# Use Koala for facebook library
+gem "koala"
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,13 +45,14 @@ gem 'capistrano-rails', group: :development
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
 end
 
 group :development do
   gem 'listen'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.5.1'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
