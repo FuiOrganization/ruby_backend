@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014043647) do
+ActiveRecord::Schema.define(version: 20171101015838) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20171014043647) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "checkins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id", null: false
+    t.bigint "experience_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "fk_rails_d201f9f029"
+    t.index ["user_id"], name: "fk_rails_4b2b85ec8b"
+  end
+
   create_table "experiences", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "description"
@@ -62,4 +71,6 @@ ActiveRecord::Schema.define(version: 20171014043647) do
     t.index ["facebook_identifier"], name: "index_users_on_facebook_identifier", unique: true
   end
 
+  add_foreign_key "checkins", "experiences"
+  add_foreign_key "checkins", "users"
 end
