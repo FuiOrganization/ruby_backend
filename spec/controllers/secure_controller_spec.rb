@@ -7,4 +7,7 @@ RSpec.describe SecureController, type: :controller do
     post :test
     assert_response :success
   end
+  it 'has a current user' do
+    expect(:current_user).to_not be nil
+  end
 end
