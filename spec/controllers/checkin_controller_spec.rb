@@ -29,6 +29,7 @@ RSpec.describe CheckinController, type: :controller do
     it "renders 500 status json if can't save checkin" do
       post :checkin, params: {experience_id: -1}
       @expected = { success: false }.to_json
+      expect(response.body).to eq(@expected)
       expect(response.status).to eq(500)
     end
   end
