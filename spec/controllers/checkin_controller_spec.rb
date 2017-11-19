@@ -10,6 +10,13 @@ RSpec.describe CheckinController, type: :controller do
     experience
   }
 
+  describe "POST #history" do
+    it "returns a success response" do
+      post :history, params: {}
+      expect(response).to be_success
+    end
+  end
+
   describe "POST #checkin" do
     it "returns a success response" do
       post :checkin, params: {experience_id: experience.id}
