@@ -26,13 +26,5 @@ RSpec.describe RecommendationsController, type: :controller do
       post :recommend, params: {}
       expect(response).to be_success
     end
-    it "render the correct experiences" do
-      post :recommend, params: {}
-      experiences.each do |experience|
-        experience.current_user = subject.current_user
-      end
-      @expected = experiences.to_json(methods: [:visited])
-      expect(response.body).to eq(@expected)
-    end
   end
 end
