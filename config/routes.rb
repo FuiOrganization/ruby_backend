@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post 'checkin/checkin'
+  post 'checkin/history'
   post 'recommendations/recommend'
   post 'facebook_user_token' => 'facebook_user_token#create'
   devise_for :admin_users, ActiveAdmin::Devise.config
