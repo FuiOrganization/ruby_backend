@@ -1,7 +1,7 @@
 class CheckinController < SecureController
   def history
-    @history = Checkin.where(user_id: 1)
-    render json: @history.to_json
+    @history = Checkin.where(user_id: current_user).includes(:experience).order("created_at desc")
+    render json: @history.to_json(methods: [:experience])
   end
 
   def checkin
