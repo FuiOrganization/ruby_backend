@@ -3,7 +3,7 @@ class FacebookService
     status = false
     begin
       puts app_access_token_info
-      debug_token = Koala::Facebook::API.new(access_token).debug_token(app_access_token_info)
+      debug_token = Koala::Facebook::API.new(app_access_token_info).debug_token(access_token)
       status = true if debug_token['data']['is_valid']
     end
     status
